@@ -20,12 +20,16 @@
           <div class="wrap">
 
               <h1>To Do List</h1>
+
+              <!-- Sezione con input e button Aggiungi -->
               <div id="top-section">
-                  <input v-model="inputText" type="text" placeholder="Scrivi una nuova attività">
+                  <input v-on:keyup.enter="addToDo" v-model="inputText" type="text" placeholder="Scrivi una nuova attività">
                   <button @click="addToDo">Aggiungi</button>
               </div>
 
+              <!-- Sezione con lista attività -->
               <div id="bottom-section">
+
                 <ul>
                     <li v-for="(todo, indexToDo) in toDoText" @click="toDoCheck" :class="done == true? 'done': 'to-do' " >
                         {{todo}}
@@ -33,6 +37,7 @@
                         <i class="fa-solid fa-xmark" @click="removeToDo(indexToDo)"></i>   
                     </li>
                 </ul>
+
               </div>
               
           </div>
