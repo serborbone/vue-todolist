@@ -38,16 +38,8 @@ const app = new Vue({
         // funzione che cambia il valore di done quando clicco sull'attività 
         toDoCheck(index) {
 
-            if (this.taskList[index].done == false) {
-
-                this.taskList[index].done = true;
-
-            } else {
-            
-                this.taskList[index].done = false;
-
-            }
-            
+            this.taskList[index].done = !this.taskList[index].done;
+        
         } 
 
       }
