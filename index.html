@@ -31,10 +31,12 @@
               <div id="bottom-section">
 
                 <ul>
-                    <li v-for="(todo, indexToDo) in toDoText" @click="toDoCheck" :class="done == true? 'done': 'to-do' " >
-                        {{todo}}
+                    <li v-for="(task, index) in taskList" @click="toDoCheck(index)">
+                        <div :class="taskList[index].done == true? 'done': 'to-do' ">
+                            {{taskList[index].text}}
+                        </div>
 
-                        <i class="fa-solid fa-xmark" @click="removeToDo(indexToDo)"></i>   
+                        <i class="fa-solid fa-xmark" @click="removeToDo(index)"></i>   
                     </li>
                 </ul>
 

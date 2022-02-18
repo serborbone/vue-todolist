@@ -4,8 +4,8 @@ const app = new Vue({
       data: {
 
         inputText: '',
-        toDoText: [],
-        done: false,
+
+        taskList: [],
 
       },
 
@@ -13,11 +13,13 @@ const app = new Vue({
 
         addToDo () {
 
-            //se inputText ha del testo (e non è vuoto)
+            //se inputText non è vuoto
             if (this.inputText.length > 0) {
 
-              //pusha il testo nell'array toDoText
-              this.toDoText.push(this.inputText);
+              taskText = {text: this.inputText, done: false};
+
+              //pusha l'oggetto nell'array taskList
+              this.taskList.push(taskText);
 
               //svuota inputText
               this.inputText = '';
@@ -27,25 +29,25 @@ const app = new Vue({
         },
 
         //funzione che rimuove un elemento dall'array (quando clicco sulla X nella casella dell'attività)
-        removeToDo (index) {
+        removeToDo (indexList) {
         
-            this.toDoText.splice(index, 1);
+            this.taskList.splice(indexList, 1);
 
         },
 
-        //funzione per cambiare il valore di done (quando clicco sull'attività nella lista) 
-        toDoCheck() {
-        
-          if (this.done == true) {
-          
-              this.done = false;
-          
-          } else {
+        // funzione che cambia il valore di done quando clicco sull'attività 
+        toDoCheck(index) {
 
-              this.done = true;
+            if (this.taskList[index].done == false) {
 
-          }
+                this.taskList[index].done = true;
 
+            } else {
+            
+                this.taskList[index].done = false;
+
+            }
+            
         } 
 
       }

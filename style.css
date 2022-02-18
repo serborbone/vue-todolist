@@ -76,6 +76,7 @@ h1 {
 
 .done {
   text-decoration: line-through;
+  color: #c3c3c3;
 }
 
 .to-do {
